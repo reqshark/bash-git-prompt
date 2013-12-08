@@ -36,6 +36,7 @@ function git_prompt_config()
 
   # Bold High Intensty
   local Magenta="\[\033[1;95m\]"      # Purple
+  #local Magenta="\[\031[1;33m\]"     # Purple
 
   # Regular Colors
   local Yellow="\[\033[0;33m\]"
@@ -47,8 +48,8 @@ function git_prompt_config()
   GIT_PROMPT_PREFIX="["
   GIT_PROMPT_SUFFIX="]"
   GIT_PROMPT_SEPARATOR="|"
-  GIT_PROMPT_BRANCH="${Magenta}"
-  GIT_PROMPT_STAGED="${Red}● "
+  GIT_PROMPT_BRANCH="${Yellow}"
+  GIT_PROMPT_STAGED="${Magenta}● "
   GIT_PROMPT_CONFLICTS="${Red}✖ "
   GIT_PROMPT_CHANGED="${Blue}✚ "
   GIT_PROMPT_REMOTE=" "
@@ -62,7 +63,7 @@ function git_prompt_config()
   local PathShort="\w"
 
   if [ "x${GIT_PROMPT_START}" == "x" ]; then
-    PROMPT_START="${Yellow}${PathShort}${ResetColor}"
+    PROMPT_START="${Red}${PathShort}${ResetColor}"
   else
     PROMPT_START="${GIT_PROMPT_START}"
   fi
@@ -194,6 +195,12 @@ function updatePrompt() {
 
 function prompt_callback_default {
     return
+}
+
+function prompt_callback {
+  if [ `jobs | wc -l` -ne 0 ]; then
+      echo -n " jobs:\j"
+  fi
 }
 
 if [ "`type -t prompt_callback`" = 'function' ]; then
