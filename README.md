@@ -1,13 +1,13 @@
-# Informative git prompt for bash using a NODE_ENV variable
+# Informative git prompt for bash using `$NODE_ENV` variable
 
 This prompt is [a fork of the awesome](https://github.com/magicmonty/bash-git-prompt) "Informative git prompt for bash" which has been derived from the original prompt for zsh found [here](https://github.com/olivierverdier/zsh-git-prompt)
 
-### This fork tweaks the bash build by using an environment variable called `$NODE_ENV` in the informative display prompt.
+### I tweaked the bash build by using an environment variable called `$NODE_ENV` in the informative display.
 
-To use this fork, make sure to `export NODE_ENV=whatever_you_want_to_put_here` in one of your `.profile`, `.bash_profile` or `.bashrc` or otherwise loaded login files.
+To use this fork, make sure to `export NODE_ENV=whatever_you_want_to_put_here` first before installing! Make sure to export this `var` in one of your `.profile`, `.bash_profile` or `.bashrc` or otherwise loaded login files.
 
-### Display the $NODE_ENV var
-Since it's easy to add this export line on different machines, the NODE_ENV variable distinguishes operations and scripting tasks by machine. It's been used for flagging development vs. production settings in node.js. However, I find it's more helpful in distributed scenerios where messages between machines can be flagged and identified by different origin environments.
+### Know your machine by its shell window. Display a $NODE_ENV
+Since we can add this export line on different machines, the NODE_ENV distinguishes operations and scripting tasks by machine. It's been used for flagging development vs. production settings in node.js. However, I find it's more helpful in distributed scenerios where messages between machines can be flagged and identified by different origin environments.
 
 ### Display an Informative Git Repo
 Primarily this is ``bash`` prompt that displays information about the current git repository. In particular the branch name, difference with remote branch, number of files staged, changed, etc.
@@ -48,17 +48,22 @@ The symbols are as follows:
 
 ## Install
 
-1. Clone this repository to your homedir
-   e.g. ``git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt``
-2. Source the file ``gitprompt.sh`` from your ``~/.bashrc`` config file
-3. Go in a git repository and test it!
+1. Clone this repo to your homedir and source its entry point into your login session.
+```bash
+$ git clone https://github.com/reqshark/bash-git-prompt.git ~/.bash-git-prompt
+$ source ~/.bash-git-prompt/gitprompt.sh
+```
+2. If you like, append that source command to your `.bashrc` or `.bash_profile` so `gitprompt.sh` script runs at login.
+```bash
+$ echo -e "source $HOME/.bash-git-prompt/gitprompt.sh" >> "$HOME/.bashrc"
+```
+3. Go in a git repository and check it out!
 
 ## Configuration
 
 1. You can use ``GIT_PROMPT_START`` and ``GIT_PROMPT_END`` to tweak your prompt
-2. If you want to tweak the colors,
-   currently you have to tweak it in the ``gitprompt.sh``
-3. You can define ``prompt_callback`` function to tweak your prompt dynamicly
+2. If you want to tweak the colors, change all the good stuff from inside `themes` dir.
+3. You can make calls from the ``prompt_callback`` function in `gitprompt.sh` to manage other dynamic prompt behavior.
 
 ```sh
 function prompt_callback {
@@ -68,6 +73,4 @@ function prompt_callback {
 }
 ```
 
-**Enjoy!**
-
-[blog post]: http://sebastiancelis.com/2009/nov/16/zsh-prompt-git-users/
+[original blog post]: http://sebastiancelis.com/2009/nov/16/zsh-prompt-git-users/
