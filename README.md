@@ -1,17 +1,22 @@
-# Informative git prompt for bash and fish
+# Informative git prompt for bash using a NODE_ENV variable
 
-This prompt is [a clone of a port](https://github.com/magicmonty/bash-git-prompt) of the "Informative git prompt for zsh" which you can find [here](https://github.com/olivierverdier/zsh-git-prompt)
+This prompt is [a fork of the awesome](https://github.com/magicmonty/bash-git-prompt) "Informative git prompt for bash" which has been derived from the original prompt for zsh found [here](https://github.com/olivierverdier/zsh-git-prompt)
 
-A ``bash`` prompt that displays information about the current git repository.
-In particular the branch name, difference with remote branch, number of files staged, changed, etc.
+### This fork tweaks the bash build by using an environment variable called `$NODE_ENV` in the informative display prompt.
 
-(an original idea from this [blog post][]).
+To use this fork, make sure to `export NODE_ENV=whatever_you_want_to_put_here` in one of your `.profile`, `.bash_profile` or `.bashrc` or otherwise loaded login files.
+
+### Display the $NODE_ENV var
+Since it's easy to add this export line on different machines, the NODE_ENV variable distinguishes operations and scripting tasks by machine. It's been used for flagging development vs. production settings in node.js. However, I find it's more helpful in distributed scenerios where messages between machines can be flagged and identified by different origin environments.
+
+### Display an Informative Git Repo
+Primarily this is ``bash`` prompt that displays information about the current git repository. In particular the branch name, difference with remote branch, number of files staged, changed, etc.
 
 ## Examples
 
-The prompt may look like the following: 
+This forked prompt looks like the following:
 
-![Example prompt](gitprompt.png)
+![Example prompt](prompt.gif)
 
 * ``(master↑3|✚1)``: on branch ``master``, ahead of remote by 3 commits, 1 file changed but not staged
 * ``(status|●2)``: on branch ``status``, 2 files staged
