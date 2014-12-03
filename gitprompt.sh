@@ -222,9 +222,9 @@ function git_prompt_config()
 
     if [[ -z "$GIT_PROMPT_START" ]] ; then
       if $_isroot; then
-        PROMPT_START="${Red}${PathShort}${ResetColor}"
+        PROMPT_START="$GIT_PROMPT_START_ROOT"
       else
-        PROMPT_START="${BoldYellowFg}\u${ResetColor}${White}${BoldRedFg}@${ResetColor}${BrightYellow}$NODE_ENV${ResetColor} ${BrightRed}`pwd`${ResetColor}"
+        PROMPT_START="$GIT_PROMPT_START_USER"
       fi
     else
       PROMPT_START="$GIT_PROMPT_START"
@@ -431,7 +431,7 @@ function updatePrompt() {
 }
 
 function prompt_callback_default {
-    return
+  return
 }
 
 function gp_install_prompt {
