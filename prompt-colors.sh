@@ -84,15 +84,3 @@ fi
 
 # end of prompt-colors.sh
 # vim: set ai sw=2
-override_git_prompt_colors() {
-  GIT_PROMPT_THEME_NAME="Solarized Ubuntu"
-  GIT_PROMPT_STAGED="${Yellow}â— "
-  GIT_PROMPT_UNTRACKED="${Cyan}â€¦ "
-  GIT_PROMPT_STASHED="${BoldMagenta}âš‘ "
-  GIT_PROMPT_CLEAN="${Green}âœ” "
-  GIT_PROMPT_COMMAND_OK="${Green}âœ” "
-  GIT_PROMPT_END_USER=" \n${White}${Time12a}${ResetColor} $ "
-  GIT_PROMPT_END_ROOT=" \n${White}${Time12a}${ResetColor} # "
-  GIT_PROMPT_BRANCH="${BoldWhite}"
-}
-override_git_prompt_colors "Solarized Ubuntu"
