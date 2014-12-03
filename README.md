@@ -48,16 +48,16 @@ The symbols are as follows:
 
 ## Install
 
-1. Clone this repo to your homedir and source its entry point into your login session.
+• Clone this repo to your homedir and source its entry point into your login session.
 ```bash
 $ git clone https://github.com/reqshark/bash-git-prompt.git ~/.bash-git-prompt
 $ source ~/.bash-git-prompt/gitprompt.sh
 ```
-2. If you like, append that source command to your `.bashrc` or `.bash_profile` so `gitprompt.sh` script runs at login.
+• If you like, append that source command to your `.bashrc` or `.bash_profile` so `gitprompt.sh` script runs at login.
 ```bash
 $ echo -e "source $HOME/.bash-git-prompt/gitprompt.sh" >> "$HOME/.bashrc"
 ```
-3. Go in a git repository and check it out!
+• Go in a git repository and check it out!
 
 ## Configuration
 
